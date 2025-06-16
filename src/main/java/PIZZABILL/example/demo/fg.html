@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍕 Pizza Order</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffe5b4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        h1 {
+            color: #ff6347;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 500;
+            color: #333;
+            text-align: left;
+        }
+        input, select, .checkbox-group {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+        input:focus, select:focus {
+            border-color: #ff6347;
+        }
+        .checkbox-group {
+            border: none;
+            padding: 0;
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: 400;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: #ff6347;
+            cursor: pointer;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff4500;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>🍕 Pizza Order</h1>
+    <form id="pizzaOrderForm" action="/order" method="post">
+        <label for="userName">Your Name:</label>
+        <input type="text" id="userName" name="userName" placeholder="Enter your name" required>
+
+        <label for="pizzaType">Pizza Type:</label>
+        <select id="pizzaType" name="pizzaType">
+            <option value="veg">Vegetarian</option>
+            <option value="nonVeg">Non-Vegetarian</option>
+        </select>
+
+        <label for="pizzaSize">Pizza Size:</label>
+        <select id="pizzaSize" name="pizzaSize">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+        </select>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="extraCheese" name="extraCheese">
+            <label for="extraCheese">Extra Cheese (₹100)</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="extraToppings" name="extraToppings">
+            <label for="extraToppings">Extra Toppings (₹150)</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="takeaway" name="takeaway">
+            <label for="takeaway">Takeaway (₹20)</label>
+        </div>
+
+        <button type="submit">Generate Bill</button>
+    </form>
+</div>
+</body>
+</html>
